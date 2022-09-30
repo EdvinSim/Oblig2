@@ -1,5 +1,5 @@
 
-public class InsertionSort{
+public abstract class InsertionSort{
     
     //Returnerer den ingenting???
     public static void insertionSort(int[] array) {
@@ -15,5 +15,3 @@ public class InsertionSort{
         }
     }
 }
-
-//Test oppdatering git??

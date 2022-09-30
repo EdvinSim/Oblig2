@@ -1,5 +1,5 @@
 
-public class QuickSort {
+public abstract class QuickSort {
 
     private static int partition(int[] arr, int low, int high) {
 

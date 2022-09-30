@@ -36,13 +36,24 @@ public class TestSortMethods {
         array = newRandomArray(1000, 0, 10000);
         //System.out.println("Foer sortering: " + checkSorted(array));
         QuickSort.quicksort(array, 0, array.length - 1);
-        System.out.println("QuickSort: " + checkSorted(array));
+        System.out.println("Quick Sort: " + checkSorted(array));
 
         //Test mergeSort
         array = newRandomArray(1000, 0, 10000);
         //System.out.println("Foer sortering: " + checkSorted(array));
         MergeSort.mergeSort(array);
-        System.out.println("MergeSort: " + checkSorted(array));
+        System.out.println("Merge Sort: " + checkSorted(array));
+
+        //Test bubbleSort
+        array = newRandomArray(1000, 0, 10000);
+        BubbleSort.bubbleSort(array);
+        System.out.println("Bubble Sort: " + checkSorted(array));
+
+        //Test selectionSort
+        array = newRandomArray(1000, 0, 10000);
+        //System.out.println("Foer sortering: " + checkSorted(array));
+        SelectionSort.selectionSort(array);
+        System.out.println("Selection Sort: " + checkSorted(array));
 
     }
 }

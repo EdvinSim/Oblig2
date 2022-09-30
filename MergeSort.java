@@ -1,5 +1,6 @@
+//Kjoretid O(n log(n))
 
-public class MergeSort {
+public abstract class MergeSort {
     public static int[] mergeSort(int[] arr) {
 
         int size = arr.length;
