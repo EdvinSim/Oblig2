@@ -1,3 +1,4 @@
+import java.util.Arrays;
 
 public class TestSortMethods {
 
@@ -54,6 +55,12 @@ public class TestSortMethods {
         //System.out.println("Foer sortering: " + checkSorted(array));
         SelectionSort.selectionSort(array);
         System.out.println("Selection Sort: " + checkSorted(array));
+
+        //Test heapsort
+        array = newRandomArray(10, 0, 100);
+        //System.out.println("Foer sortering: " + checkSorted(array));
+        Heapsort.heapsort(array);
+        System.out.println("HeapSort: " + checkSorted(array));
 
     }
 }
