@@ -4,6 +4,7 @@ public abstract class InsertionSort{
     //Returnerer den ingenting???
     public static void insertionSort(int[] array) {
         int length = array.length;
+        
         for(int i = 1; i < length; i++) {
             int j = i;
             while(j > 0 && array[j-1] > array[j]) {
