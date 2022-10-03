@@ -35,15 +35,19 @@ public abstract class QuickSort {
         return left;
     }
 
-    public static int[] quicksort(int[] arr, int low, int high) {
+    private static int[] _quicksort(int[] arr, int low, int high) {
         if(low >= high) {
             return arr;
         }
         else {
             int p = partition(arr, low, high);
-            quicksort(arr, low, p-1);
-            quicksort(arr, p+1, high);
+            _quicksort(arr, low, p-1);
+            _quicksort(arr, p+1, high);
             return arr;
         }
+    }
+
+    public static void quicksort(int[] arr) {
+        _quicksort(arr, 0, arr.length-1);
     }
 }

@@ -1,4 +1,3 @@
-import java.util.Arrays;
 
 public class TestSortMethods {
 
@@ -36,7 +35,7 @@ public class TestSortMethods {
         //Test quicksort
         array = newRandomArray(1000, 0, 10000);
         //System.out.println("Foer sortering: " + checkSorted(array));
-        QuickSort.quicksort(array, 0, array.length - 1);
+        QuickSort.quicksort(array);
         System.out.println("Quick Sort: " + checkSorted(array));
 
         //Test mergeSort
