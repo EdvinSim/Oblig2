@@ -1,5 +1,10 @@
 //Kjoretid O(n log(n))
 
+/*
+Splitte i 2, sortere de mindre delene ved rekursjon til hvert array har et element. 
+Deretter flette sammen. med metoden merge.
+*/
+
 public abstract class MergeSort {
     public static int[] mergeSort(int[] arr) {
 
@@ -40,10 +45,13 @@ public abstract class MergeSort {
             }
         }
 
+        //Naar j er out of range
         while(i < arr1.length) {
                 array[i+j] = arr1[i];
                 i++;
         }
+
+        //Naar i er out of range
         while(j < arr2.length) {
                 array[i+j] = arr2[j];
                 j++;
