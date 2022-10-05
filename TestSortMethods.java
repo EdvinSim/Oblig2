@@ -34,8 +34,8 @@ public class TestSortMethods {
         System.out.println("Insertion sort: " + checkSorted(array));
 
         //Test quicksort
-        array = newRandomArray(1000, 0, 10000);
-        //System.out.println("Foer sortering: " + checkSorted(array));
+        array = newRandomArray(100, 0, 1000);
+        // System.out.println("Foer sortering: " + checkSorted(array));
         QuickSort.quicksort(array);
         System.out.println("Quick Sort: " + checkSorted(array));
 

@@ -3,12 +3,7 @@ public abstract class QuickSort {
 
     private static int partition(int[] arr, int low, int high) {
 
-        //Dette er fra psudokoden, men det funka ikke :( Hvorfor? 
-        // int median = arr.length/2; //Runder ned
-
-        // int pivot = arr[median];
-        // arr[median] = arr[high];
-        // arr[high] = pivot;
+        //En annen pivot er aa peke paa midten av aprtisjonen. Midten av low/high ikke lengden av arr.
 
         int pivot = arr[high];
 

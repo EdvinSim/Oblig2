@@ -1,3 +1,5 @@
+//Denne er ikke ferdig.
+
 public class RadixSort {
     public static void radixSort(int[] arr) {
         int digits = maxDigits(arr);
