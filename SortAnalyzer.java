@@ -89,5 +89,22 @@ public class SortAnalyzer {
         }
     }
 
+    //Gjoer en analyse av en sorteringsalgoritme.
+    public static void analyze(String filename, SorterParent sorter) {
+        int[] array = readFile(filename);
+
+        long t = System.nanoTime();
+        sorter.sort(array);
+        long time = (System.nanoTime()-t)/1000;
+
+        output(array, filename, sorter.getName());
+
+        System.out.println(
+            "\n" + (sorter.getName() + "sort").toUpperCase()
+            + "\nArray size:\t" + array.length
+            + "\nTid:\t\t" + time + " mikrosek."
+        );
+    }
+
 
 }

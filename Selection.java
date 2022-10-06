@@ -1,6 +1,8 @@
 //minjoretid O(n^2)
-public abstract class SelectionSort {
-    public static void selectionSort(int[] arr) {
+public class Selection extends SorterParent {
+
+    @Override
+    public int[] sort(int[] arr) {
         for(int i = 0; i < arr.length; i++) {
             int min = i;
             for(int j = i+1; j < arr.length; j++) {
@@ -14,5 +16,12 @@ public abstract class SelectionSort {
                 arr[min] = tmp;
             }
         }
+
+        return arr;
+    }
+
+    @Override
+    public String getName() {
+        return "selection";
     }
 }

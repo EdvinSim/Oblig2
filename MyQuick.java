@@ -1,5 +1,5 @@
 
-public abstract class QuickSort {
+public class MyQuick extends SorterParent{
 
     private static int partition(int[] arr, int low, int high) {
 
@@ -42,7 +42,14 @@ public abstract class QuickSort {
         }
     }
 
-    public static void quicksort(int[] arr) {
+    @Override
+    public int[] sort(int[] arr) {
         _quicksort(arr, 0, arr.length-1);
+        return arr;
+    }
+    
+    @Override
+    public String getName() {
+        return "quick";
     }
 }

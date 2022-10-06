@@ -1,4 +1,4 @@
-public abstract class Heapsort {
+public class Heap extends SorterParent {
 
     private static void buildMaxHeap(int[] arr, int size) {
 
@@ -31,7 +31,8 @@ public abstract class Heapsort {
         }
     }
 
-    public static void heapsort(int[] arr) {
+    @Override
+    public int[] sort(int[] arr) {
         buildMaxHeap(arr, arr.length);
         for(int i = arr.length-1; i >= 0; i--) {
             int tmp = arr[0];
@@ -39,5 +40,12 @@ public abstract class Heapsort {
             arr[i] = tmp;
             bubbleDown(arr, 0, i);
         }
+
+        return arr;
+    }
+
+    @Override
+    public String getName() {
+        return "heap";
     }
 }

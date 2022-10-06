@@ -1,8 +1,8 @@
 
-public abstract class InsertionSort{
+public class MyInsertion extends SorterParent{
     
-    //Returnerer den ingenting???
-    public static void insertionSort(int[] array) {
+    @Override
+    public int[] sort(int[] array) {
         int length = array.length;
         
         for(int i = 1; i < length; i++) {
@@ -14,5 +14,12 @@ public abstract class InsertionSort{
                 j--;
             }
         }
+
+        return array;
+    }
+
+    @Override
+    public String getName() {
+        return "insertion";
     }
 }

@@ -5,8 +5,10 @@ Splitte i 2, sortere de mindre delene ved rekursjon til hvert array har et eleme
 Deretter flette sammen. med metoden merge.
 */
 
-public abstract class MergeSort {
-    public static int[] mergeSort(int[] arr) {
+public class Merge extends SorterParent{
+
+    @Override
+    public int[] sort(int[] arr) {
 
         int size = arr.length;
 
@@ -24,8 +26,8 @@ public abstract class MergeSort {
                 else right[i-middle] = arr[i];
             }
              
-            int[] arr1 = mergeSort(left);
-            int[] arr2 = mergeSort(right);
+            int[] arr1 = sort(left);
+            int[] arr2 = sort(right);
             return merge(arr1, arr2, arr);
         }
     }
@@ -58,5 +60,10 @@ public abstract class MergeSort {
         }
 
         return array;
+    }
+
+    @Override
+    public String getName() {
+        return "merge";
     }
 }

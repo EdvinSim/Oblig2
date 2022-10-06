@@ -27,44 +27,46 @@ public class TestSortMethods {
 
     public static void main(String[] args) {
 
-        //Test insertionSort
-        int[] array = newRandomArray(1000, 0, 10000);
-        //System.out.println("Foer sortering: " + checkSorted(array));
-        InsertionSort.insertionSort(array);
-        System.out.println("Insertion sort: " + checkSorted(array));
+        SorterParent sorters[] = {
+            new Bubble(), 
+            new Heap(),
+            new Merge(),
+            new MyInsertion(),
+            new MyQuick(),
+            new Selection(),
 
-        //Test quicksort
-        array = newRandomArray(100, 0, 1000);
-        // System.out.println("Foer sortering: " + checkSorted(array));
-        QuickSort.quicksort(array);
-        System.out.println("Quick Sort: " + checkSorted(array));
+        };
 
-        //Test mergeSort
-        array = newRandomArray(1000, 0, 10000);
-        //System.out.println("Foer sortering: " + checkSorted(array));
-        MergeSort.mergeSort(array);
-        System.out.println("Merge Sort: " + checkSorted(array));
+        for(SorterParent sorter: sorters) {
+            smallTest(sorter);
+        }
 
-        //Test bubbleSort
-        array = newRandomArray(1000, 0, 10000);
-        BubbleSort.bubbleSort(array);
-        System.out.println("Bubble Sort: " + checkSorted(array));
+        System.out.println("\n");
+        for(SorterParent sorter: sorters) {
+            bigTest(sorter);
+        }
 
-        //Test selectionSort
-        array = newRandomArray(1000, 0, 10000);
-        //System.out.println("Foer sortering: " + checkSorted(array));
-        SelectionSort.selectionSort(array);
-        System.out.println("Selection Sort: " + checkSorted(array));
+    }
 
-        //Test heapsort
-        array = newRandomArray(10, 0, 100);
-        //System.out.println("Foer sortering: " + checkSorted(array));
-        Heapsort.heapsort(array);
-        System.out.println("HeapSort: " + checkSorted(array));
+    public static void smallTest(SorterParent sorter) {
+        int size = 10;
+        int max = size*10;
 
-        //Test radixSort
-        array = newRandomArray(100, 0, 10000);
-        RadixSort.radixSort(array);
+        System.out.println("\n" + sorter.getName());
+        int[] array = newRandomArray(size, 0, max);
+        System.out.println("Foer sortering: " + Arrays.toString(array));
+        // System.out.println(sorter.getName() + "sort: " + checkSorted(array));
+        sorter.sort(array);
+        System.out.println("Etter sortering: " + Arrays.toString(array));
+        System.out.println("Er sortert: " + checkSorted(array));
+    }
 
+    public static void bigTest(SorterParent sorter) {
+        int size = 100000;
+        int max = size*10;
+
+        int[] array = newRandomArray(size, 0, max);
+        sorter.sort(array);
+        System.out.println(sorter.getName() + " er sortert: " + checkSorted(array));
     }
 }
