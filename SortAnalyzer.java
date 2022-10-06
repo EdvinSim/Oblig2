@@ -56,14 +56,18 @@ public class SortAnalyzer {
         return sorted;
     }
 
-    public static void writeFile(int[] array, String fileName, String sortingMethod) {
+    public static void writeFile(int[] array, String file, String sortingMethod) {
+
+        String fileName = file.split("_")[1];
         
         try {
-            File newFile = new File(fileName + "_" + sortingMethod + ".out");
+            String nameNewFile = fileName + "_" + sortingMethod + ".out";
+            File newFile = new File("outputs/" + nameNewFile);
+
             if(newFile.createNewFile()) {
-                System.out.println("Fil laget");
+                System.out.println("\nFil laget");
             } else {
-                System.out.println("Filen finnes fra foer");
+                System.out.println("Filen finnes fra foer!");
             }
 
             FileWriter writer = new FileWriter(newFile);
@@ -82,8 +86,8 @@ public class SortAnalyzer {
 
     public static void output(int[] array, String fileName, String sortingMethod) {
         if(checkSorted(array)) {
-            System.out.println("Hurra! Denne arrayen er sortert :D");
             writeFile(array, fileName, sortingMethod);
+            System.out.println("Hurra! Arrayen blue sortert med " + sortingMethod + "sort :D");
         } else {
             System.out.println("Denne arrayen er ikke sortert >:(");
         }
