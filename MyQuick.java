@@ -69,6 +69,6 @@ public class MyQuick extends SorterParent{
     
     @Override
     public String getName() {
-        return "quick";
+        return "Quick";
     }
 }

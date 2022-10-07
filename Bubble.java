@@ -27,6 +27,6 @@ public class Bubble extends SorterParent{
 
     @Override
     public String getName() {
-        return "bubble";
+        return "Bubble";
     }
 }

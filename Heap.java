@@ -66,6 +66,6 @@ public class Heap extends SorterParent {
 
     @Override
     public String getName() {
-        return "heap";
+        return "Beap";
     }
 }

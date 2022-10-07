@@ -81,6 +81,6 @@ public class Merge extends SorterParent{
 
     @Override
     public String getName() {
-        return "merge";
+        return "Merge";
     }
 }

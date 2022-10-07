@@ -8,13 +8,7 @@ import java.util.Scanner;
 
 public class SortAnalyzer {
 
-    
-    // String inputFile;
-    // int[] array;
-
-    // SortAnalyzer(String fileName) {
-    //     inputFile = fileName;
-    // }
+    static int width = 12;
 
     public static int[] readFile(String filename) {
         int [] array;
@@ -56,18 +50,19 @@ public class SortAnalyzer {
         return sorted;
     }
 
-    public static void writeFile(int[] array, String file, String sortingMethod) {
+    public static String writeFile(int[] array, String file, String sortingMethod) {
 
         String fileName = file.split("_")[1];
+        String status = "Noe galt i writeFile???!!!";
         
         try {
             String nameNewFile = fileName + "_" + sortingMethod + ".out";
             File newFile = new File("outputs/" + nameNewFile);
 
             if(newFile.createNewFile()) {
-                System.out.println("\nFil laget");
+                status = "Fil laget";
             } else {
-                System.out.println("\nFilen finnes fra foer!");
+                status = "Filen finnes fra foer!";
             }
 
             FileWriter writer = new FileWriter(newFile);
@@ -82,15 +77,22 @@ public class SortAnalyzer {
             System.out.println("Det skjedde noe feil i writeFile-metoden!");
             e.printStackTrace();
         }
+
+        return status;
     }
 
-    public static void output(int[] array, String fileName, String sortingMethod) {
+    public static String output(int[] array, String fileName, String sortingMethod) {
+
+        String status;
+
         if(checkSorted(array)) {
-            writeFile(array, fileName, sortingMethod);
-            System.out.println("Hurra! Arrayen ble sortert med " + sortingMethod + "sort :D");
+            status = writeFile(array, fileName, sortingMethod);
+            // status += "\tHurra! Sortert med " + sortingMethod + "sort :D";
         } else {
-            System.out.println("Denne arrayen er ikke sortert >:(");
+            status = "Sortering med" + sortingMethod + " funket ikke >:(";
         }
+
+        return status;
     }
 
     //Gjoer en analyse av en sorteringsalgoritme.
@@ -101,16 +103,36 @@ public class SortAnalyzer {
         sorter.sort(array);
         long time = (System.nanoTime()-t)/1000;
 
-        System.out.println(
-            "\n" + (sorter.getName() + "sort").toUpperCase()
-            + "\nArray size:\t" + array.length
-            + "\nTime:\t\t" + time + " mikrosek."
-            + "\nSwaps:\t\t" + sorter.swaps
-            + "\nCompares:\t" + sorter.compares
-        );
+        String status = output(array, filename, sorter.getName());
 
-        output(array, filename, sorter.getName());
+
+        //Verikal print
+        
+        // System.out.println(
+        //     "\n" + (sorter.getName() + "sort").toUpperCase()
+        //     + "\nArray size:\t" + array.length
+        //     + "\nTime:\t\t" + time + " mikrosek."
+        //     + "\nSwaps:\t\t" + sorter.swaps
+        //     + "\nCompares:\t" + sorter.compares
+        //     + "\n" + Status
+        // );
+
+
+        //Horisontal print
+        String linje = String.format("%-"+width+"s%-"+width+"d%-"+width+"d%-"+width+"d%-"+width+"d%-"+width+"s", sorter.getName(), array.length, time, sorter.swaps, sorter.compares, status);
+        System.out.println(linje);
     }
 
+    public static String header() {
+        String[] titles = {"Sorter", "Array size", "compares", "Swaps", "Time", "Status"};
+        String header = "\n";
 
+        for(String s: titles) {
+            header += String.format("%-"+ width +"s", s);
+        }
+
+        header += "\n";
+
+        return header;
+    }
 }

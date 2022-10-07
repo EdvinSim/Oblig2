@@ -29,6 +29,6 @@ public class MyInsertion extends SorterParent{
 
     @Override
     public String getName() {
-        return "insertion";
+        return "Insertion";
     }
 }

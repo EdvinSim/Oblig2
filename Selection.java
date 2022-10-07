@@ -31,6 +31,6 @@ public class Selection extends SorterParent {
 
     @Override
     public String getName() {
-        return "selection";
+        return "Selection";
     }
 }
