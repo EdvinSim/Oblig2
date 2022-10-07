@@ -12,7 +12,9 @@ public class Merge extends SorterParent{
 
         int size = arr.length;
 
+        compares++;
         if(size <= 1) {
+
             return arr;
         }
         else {
@@ -22,6 +24,9 @@ public class Merge extends SorterParent{
 
             //Splitt i to arrays.
             for(int i = 0; i < size; i++) {
+                compares++;
+                
+                compares++;
                 if(i < middle) left[i] = arr[i];
                 else right[i-middle] = arr[i];
             }
@@ -32,12 +37,17 @@ public class Merge extends SorterParent{
         }
     }
 
-    private static int[] merge(int[] arr1, int[] arr2, int[] array) {
+    private int[] merge(int[] arr1, int[] arr2, int[] array) {
         int i = 0;
         int j = 0;
 
+        compares += 2;//Siden vi ikke gaar inn i whileblokken siste gang.
         while(i < arr1.length && j < arr2.length) {
+            compares += 2;
+
+            compares++;
             if(arr1[i] <= arr2[j]) {
+
                 array[i+j] = arr1[i];
                 i++;
             }
@@ -47,16 +57,23 @@ public class Merge extends SorterParent{
             }
         }
 
+
         //Naar j er out of range
+        compares++;
         while(i < arr1.length) {
-                array[i+j] = arr1[i];
-                i++;
+            compares++;
+
+            array[i+j] = arr1[i];
+            i++;
         }
 
         //Naar i er out of range
+        compares++;
         while(j < arr2.length) {
-                array[i+j] = arr2[j];
-                j++;
+            compares++;
+            
+            array[i+j] = arr2[j];
+            j++;
         }
 
         return array;

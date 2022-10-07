@@ -1,7 +1,7 @@
 
 public class MyQuick extends SorterParent{
 
-    private static int partition(int[] arr, int low, int high) {
+    private int partition(int[] arr, int low, int high) {
 
         //En annen pivot er aa peke paa midten av aprtisjonen. Midten av low/high ikke lengden av arr.
 
@@ -10,27 +10,46 @@ public class MyQuick extends SorterParent{
         int left = low;
         int right = high - 1; //Siste index foer pivot.
 
+        compares++;
         while( left <= right) {
+            compares++;
+
+            compares += 2;
             while(left <= right && arr[left] <= pivot) {
+                compares += 2;
+
                 left++;
             }
+
+            compares += 2;
             while(right >= left && arr[right] >= pivot) {
+                compares += 2;
+
                 right--;
             }
+
+            compares++;
             if(left < right) {
                 int tmp = arr[left];
                 arr[left] = arr[right];
                 arr[right] = tmp;
+
+                swaps++;
             }
         }
 
         int tmp = arr[left];
         arr[left] = arr[high];
         arr[high] = tmp;
+
+        swaps++;
+        
         return left;
     }
 
-    private static int[] _quicksort(int[] arr, int low, int high) {
+    private int[] _quicksort(int[] arr, int low, int high) {
+        
+        compares++;
         if(low >= high) {
             return arr;
         }

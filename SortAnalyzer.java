@@ -67,7 +67,7 @@ public class SortAnalyzer {
             if(newFile.createNewFile()) {
                 System.out.println("\nFil laget");
             } else {
-                System.out.println("Filen finnes fra foer!");
+                System.out.println("\nFilen finnes fra foer!");
             }
 
             FileWriter writer = new FileWriter(newFile);
@@ -87,7 +87,7 @@ public class SortAnalyzer {
     public static void output(int[] array, String fileName, String sortingMethod) {
         if(checkSorted(array)) {
             writeFile(array, fileName, sortingMethod);
-            System.out.println("Hurra! Arrayen blue sortert med " + sortingMethod + "sort :D");
+            System.out.println("Hurra! Arrayen ble sortert med " + sortingMethod + "sort :D");
         } else {
             System.out.println("Denne arrayen er ikke sortert >:(");
         }
@@ -101,13 +101,15 @@ public class SortAnalyzer {
         sorter.sort(array);
         long time = (System.nanoTime()-t)/1000;
 
-        output(array, filename, sorter.getName());
-
         System.out.println(
             "\n" + (sorter.getName() + "sort").toUpperCase()
             + "\nArray size:\t" + array.length
-            + "\nTid:\t\t" + time + " mikrosek."
+            + "\nTime:\t\t" + time + " mikrosek."
+            + "\nSwaps:\t\t" + sorter.swaps
+            + "\nCompares:\t" + sorter.compares
         );
+
+        output(array, filename, sorter.getName());
     }
 
 
