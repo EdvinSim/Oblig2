@@ -1,6 +1,6 @@
 class Innlevering2 {
 
-    //---MAIN---
+    //___MAIN___
     public static void main(String[] args) {
         
         String filename = args[0];
