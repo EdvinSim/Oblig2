@@ -106,7 +106,7 @@ public class SortAnalyzer {
         String status = output(array, filename, sorter.getName());
 
 
-        //Verikal print
+        //Vertical print
         
         // System.out.println(
         //     "\n" + (sorter.getName() + "sort").toUpperCase()
@@ -118,7 +118,7 @@ public class SortAnalyzer {
         // );
 
 
-        //Horisontal print
+        //Horizontal print
         String linje = String.format("%-"+width+"s%-"+width+"d%-"+width+"d%-"+width+"d%-"+width+"d%-"+width+"s", sorter.getName(), array.length, time, sorter.swaps, sorter.compares, status);
         System.out.println(linje);
     }
