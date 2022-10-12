@@ -4,12 +4,13 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
-//En klasse med statiske metoder.
+//Analyzes a sorting algorithm by measuring time, compares and swaps.
 
 public class SortAnalyzer {
 
     static int width = 12;
 
+    //Returns an array consisting of number from a file.
     public static int[] readFile(String filename) {
         int [] array;
 
@@ -95,7 +96,7 @@ public class SortAnalyzer {
         return status;
     }
 
-    //Gjoer en analyse av en sorteringsalgoritme.
+    //Analyzes a sorting algorithm.
     public static void analyze(String filename, SorterParent sorter) {
         int[] array = readFile(filename);
 
