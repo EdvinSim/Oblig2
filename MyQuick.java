@@ -3,7 +3,7 @@ public class MyQuick extends SorterParent{
 
     private int partition(int[] arr, int low, int high) {
 
-        //En annen pivot er aa peke paa midten av aprtisjonen. Midten av low/high ikke lengden av arr.
+        //En annen pivot er aa peke paa midten av partisjonen. Midten av low/high ikke lengden av arr.
 
         int pivot = arr[high];
 
